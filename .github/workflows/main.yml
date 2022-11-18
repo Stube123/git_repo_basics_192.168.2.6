@@ -1,0 +1,26 @@
+name: CI-CD-Piplene-to-AWS-ElasticBeastalk
+env:
+  EB_PACKAGE_S3_BUCKET_NAME : "adv-it-flask-application-packages-st"
+  EB_APPLICATION_NAME       : "MyFlask"
+  EB_ENVIROMENT_NAME        : "Myflask-env"
+  DEPLOY_PACKAGE_NAME       : "flask_app_${{ github.sha }}.zip"
+  AWS_REGIN_NAME            : "eu-central-1"
+  
+on:
+  branches:
+    - master
+        
+jobs:
+  my_ci_part:
+    runs-on: ubuntu-latest
+    
+    steps:
+      -name: Git clone repo
+       uses: action/checkout@v2.5.0
+    
+      -name: Create zip deplyment package
+       run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x * .git*
+       
+       
+       
+ 
