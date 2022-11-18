@@ -12,15 +12,12 @@ on:
         
 jobs:
   my_ci_part:
-    runs-on: ubuntu-latest
+    runs-on : ubuntu-latest
     
     steps:
       -name: Git clone repo
        uses: action/checkout@v2.5.0
-    
-      -name: Create zip deplyment package
-       run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x * .git*
        
-       
-       
- 
+     -name : Create zip deplyment package
+      run  : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x * .git*
+      
