@@ -7,8 +7,9 @@ env:
   AWS_REGIN_NAME            : "eu-central-1"
   
 on:
-  branches:
-    - master
+  push:
+    branches:
+      - master
         
 jobs:
   my_ci_part:
